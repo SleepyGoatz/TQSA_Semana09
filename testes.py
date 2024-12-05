@@ -26,10 +26,9 @@ class turmaTest(unittest.TestCase):
     self.assertEqual(6, self.turmaObject.menorNota.nota, 'Erro ao encontrar menor nota');
 
   def testIntervalo(self):
-    print('Testar se o intervalo de notas está correto.')
-    #Escreva o seu código aqui
-    #Testar se o intervalo de notas está entre 0 e 10.
-
+    for aluno in self.alunos:
+      with self.subTest(aluno=aluno):
+        self.assertTrue(0 <= aluno.nota <= 10, f"Nota invalida para {aluno.mostrarAluno()}")
 
 if __name__ == "__main__":
   unittest.main()
